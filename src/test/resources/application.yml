@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/jpashoptest;
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+#          show_sql: true
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.orm.jdbc.bind: trace
+
+# 스프링 부트는 기본적으로 별도의 datasource 설정이 없으면 메모리 모드로 돌려버린다. 그러기 때문에 모든 설정이 다 없어도 된다!!

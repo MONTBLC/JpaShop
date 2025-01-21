@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/jpashop;
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+#          show_sql: true
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.orm.jdbc.bind: trace
+
+# org.hibernate.orm.jdbc.bind: trace #스프링 부트 3.x, hibernate6
+# org.hibernate.type: trace #스프링 부트 2.x, hibernate5
+# 쿼리 파라미터를 로그로 남기는 외부 라이브러리는 시스템 자원을 사용하므로,
+# 개발 단계에서는 편하게 사용해도 된다.
+# 하지만 운영시스템에 적용하려면 꼭 성능테스트를 하고 사용하는 것이 좋다!!
+
+# (spring.jpa.hibernate.ddl-auto: create) : 이 옵션은 애플리케이션 실행 시점에 테이블을 drop 하고, 다시 생성한다.
+
+# (참고로 MVCC 는 TRUE 라는 옵션이 있는데, 적용할 시, 좀 더 여러 개가 한 번에 접근했을 때 빨리 처리가 된다. 넣어주는 것이 권장이다.)
+#  -> H2 데이터베이스의 MVCC 옵션은 1.4.200 버전부터 deprecated 되었고, 이후 버전에서는 완전히 제거되었다.
+
