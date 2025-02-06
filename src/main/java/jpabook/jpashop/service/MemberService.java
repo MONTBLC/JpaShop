@@ -24,11 +24,14 @@ public class MemberService {
      */
     @Transactional // 따로 설정한 거는 우선권을 가진다.
     public Long join(Member member) {
-        validateDuplicateMember(member); // 중복 회원 검증 로직
+        validateDuplicateMember(member); // 중복 회원 검증
         memberRepository.save(member);
         return member.getId();
     }
 
+    /**
+     * 중복 회원 검증 로직
+     */
     private void validateDuplicateMember(Member member) {
         // EXCEPTION
         List<Member> findMembers = memberRepository.findByName(member.getName());
