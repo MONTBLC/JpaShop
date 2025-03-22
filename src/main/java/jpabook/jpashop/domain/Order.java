@@ -65,8 +65,8 @@ public class Order {
 
     //==생성 메소드==//
     // 생성자 보다 생성 메소드로 작성한 것은 객체 생성 의도를 더 잘 드러내기 위한 방법 중 하나이다!!!
-    // OrderItem 을 List 로 념기면 되는데 여러 개 할 수 있으니 OrderItem... 문법으로 표기한다.
-    // 중요한 것은 앞으로 뭔가 생성하는 지점을 변경해야 되면 여기만 바꾸면 되기 때문이다.
+    // OrderItem 을 List 로 넘기면 되는데 여러 개 할 수 있으니 OrderItem... 문법으로 표기한다.
+    // 중요한 것은 앞으로 뭔가 생성하는 지점을 변경해야 되면 여기에서만 바꾸면 되기 때문이다.
     public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) {
         Order order = new Order();
         order.setMember(member);
